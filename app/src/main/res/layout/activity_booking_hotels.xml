@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:id="@+id/scrollView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    android:orientation="vertical"
+    android:background="#03122F"
+    tools:context="com.example.prof_mohamedatef.yourbestonlinetv.Booking_hotels">
+
+    <LinearLayout
+        android:layout_margin="20dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="#3B5998"
+        android:layout_weight=".35">
+        <TextView
+            android:layout_marginLeft="15dp"
+            android:textColor="#FFF"
+            android:textStyle="bold"
+            android:textSize="25sp"
+            android:text="Nile"
+            android:gravity="fill_vertical"
+            android:id="@+id/txt_hotel_name"
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_height="match_parent" />
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+            <ImageView
+                android:layout_alignParentRight="true"
+                android:id="@+id/Hotel_Image"
+                android:layout_width="65dp"
+                android:layout_height="65dp" />
+        </LinearLayout>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="1dp">
+        <LinearLayout
+            android:layout_margin="5dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <TextView
+                android:layout_gravity="center"
+                android:textColor="#FFF"
+                android:text="Reserve :"
+                android:id="@+id/txt_title_available_rooms"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.6"
+
+                />
+            <Spinner
+
+
+                android:background="#FFF"
+                android:layout_marginLeft="3dp"
+                android:id="@+id/spinner"
+                android:textStyle="bold"
+                android:textSize="15sp"
+                android:layout_gravity="center"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+
+                />
+
+            <TextView
+                android:layout_marginLeft="3dp"
+                android:layout_gravity="center"
+                android:textColor="#FFF"
+                android:text="price / 1 night : "
+                android:id="@+id/txt_title_price_per_room"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                />
+            <TextView
+
+                android:layout_marginLeft="3dp"
+                android:textColor="#e3ff00"
+                android:padding="5dp"
+                android:textStyle="bold"
+                android:layout_gravity="center"
+                android:id="@+id/txt_pricePerRoom"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.8"
+                />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <TextView
+                android:textColor="#FFF"
+                android:id="@+id/txt_title_from_data_hotels_booking"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="From :"
+                />
+            <EditText
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:textColor="#FFF"
+                android:id="@+id/txt_from_data_hotels_booking"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+            <TextView
+                android:textColor="#FFF"
+                android:id="@+id/txt_title_to_date_hotels_booking"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="TO :"
+                />
+
+            <EditText
+                android:textColor="#FFF"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:id="@+id/txt_to_date_hotels_booking"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+            <TextView
+                android:textColor="#FFF"
+                android:id="@+id/txt_title_total_payment"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Total cash rate :"
+                android:layout_marginRight="15dp"
+                />
+            <TextView
+                android:text=""
+                android:background="#FFF"
+                android:textColor="#000"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:gravity="center_horizontal"
+                android:id="@+id/txt_total_payment"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+
+                />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:padding="30dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+        <Button
+            android:layout_gravity="center"
+            style="@style/ButtonText"
+            android:background="@drawable/button_shape"
+            android:id="@+id/btn_Confirm_reservation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Confirm Reservation"
+            android:onClick="Confirm_Reservation"
+            />
+    </LinearLayout>
+</LinearLayout>
+</ScrollView>

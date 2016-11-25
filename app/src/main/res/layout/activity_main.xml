@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:id="@+id/scrollView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.prof_mohamedatef.yourbestonlinetv.MainActivity"
+    android:background="#03122F">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="19dp"
+        >
+        <ImageView
+            android:padding="80dp"
+            android:id="@+id/LogoImage_MainActivity"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="3"
+            android:src="@drawable/white_care_logo"/>
+        <TextView
+            android:textStyle="bold"
+            android:textSize="30sp"
+            android:gravity="center"
+            android:textColor="#FFF"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1.75"
+            android:text="YourBest-Online.com"
+            />
+        <Button
+            style="@style/ButtonText"
+            android:background="@drawable/button_shape"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.5"
+            android:text="I am already a User"
+            android:onClick="IamAUser"
+
+            />
+        <Button
+            style="@style/ButtonText"
+            android:background="@drawable/button_shape"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.5"
+            android:text="I am new"
+            android:onClick="IamNew"
+            />
+    </LinearLayout>
+</LinearLayout>
+</ScrollView>

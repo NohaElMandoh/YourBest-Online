@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:id="@+id/scrollView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    android:orientation="vertical"
+    android:background="#03122F"
+    tools:context="com.example.prof_mohamedatef.yourbestonlinetv.Profile">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+        <TextView
+            android:id="@+id/txt_ISADMIN"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:textColor="#6FFF00"
+            android:padding="5dp"
+            android:textStyle="bold"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+        <TextView
+            android:id="@+id/txt_FirstName_Title"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:textColor="#FFF"
+            android:padding="5dp"
+            android:textStyle="bold"
+            android:layout_height="wrap_content" android:text="First Name" />
+        <EditText
+            android:id="@+id/EditText_FirstName"
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:textColor="#D4D4D8"
+            android:padding="5dp"
+            android:textStyle="bold"
+            android:layout_height="wrap_content"  />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+
+        >
+        <TextView
+            android:id="@+id/txt_LastName_Title"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:textColor="#FFF"
+            android:padding="5dp"
+            android:textStyle="bold"
+            android:layout_height="wrap_content" android:text="Last Name" />
+        <EditText
+            android:id="@+id/txt_LastName"
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:textColor="#D4D4D8"
+            android:padding="5dp"
+            android:textStyle="bold"
+            android:layout_height="wrap_content"  />
+    </LinearLayout>
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/txt_email_Title"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:textColor="#FFF"
+            android:padding="5dp"
+            android:textStyle="bold"
+            android:layout_height="wrap_content" android:text="email" />
+        <EditText
+            android:id="@+id/txt_email"
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:textColor="#D4D4D8"
+            android:padding="5dp"
+            android:textStyle="bold"
+            android:layout_height="wrap_content"  />
+        <TextView
+            android:id="@+id/txt_email_astrisk"
+            android:layout_width="0dp"
+            android:layout_weight="0.25"
+            android:textColor="#ff0ad0"
+            android:padding="5dp"
+            android:textStyle="bold"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/txt_User_type_Title"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:textColor="#FFF"
+            android:padding="5dp"
+            android:textStyle="bold"
+            android:layout_height="wrap_content" android:text="User Type" />
+
+            <TextView
+                android:id="@+id/txt_ClientStatus"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:textColor="#FFF"
+                android:textStyle="bold"
+                android:padding="2dp"
+                />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/txt_gender_Title"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:textColor="#FFF"
+            android:padding="5dp"
+            android:textStyle="bold"
+            android:layout_height="wrap_content" android:text="gender" />
+
+            <TextView
+                android:id="@+id/txt_GenderStatus"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:textColor="#FFF"
+                android:textStyle="bold"
+                android:padding="2dp"
+                />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/txt_dOB_Title"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:textColor="#FFF"
+            android:padding="5dp"
+            android:textStyle="bold"
+            android:layout_height="wrap_content" android:text="Birthday" />
+        <EditText
+            android:id="@+id/txt_dOB"
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:textColor="#D4D4D8"
+            android:padding="5dp"
+            android:textStyle="bold"
+            android:layout_height="wrap_content"  />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/ButtonText"
+            style="@style/ButtonText"
+            android:background="@drawable/button_shape"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="UpdateProfile"
+            />
+    </LinearLayout>
+
+</LinearLayout>
+</ScrollView>

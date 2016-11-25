@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.prof_mohamedatef.yourbestonlinetv">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".androidlistviewactivity"
+            android:configChanges="orientation|screenSize"
+            >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".Hotels"
+            android:parentActivityName=".androidlistviewactivity"
+            android:configChanges="orientation|screenSize"
+            />
+        <activity android:name=".aviation"
+            android:parentActivityName=".androidlistviewactivity"
+            />
+        <activity android:name=".Sports"
+            android:parentActivityName=".androidlistviewactivity"
+            android:configChanges="orientation|screenSize"
+            />
+        <activity android:name=".Booking_hotels"
+            android:parentActivityName=".Hotels"
+            />
+        <activity android:name=".hotel_orders"
+            android:parentActivityName=".Booking_hotels"
+            android:configChanges="orientation|screenSize"
+            />
+        <activity android:name=".HotelOrders_details"
+            android:parentActivityName=".hotel_orders"
+            />
+        <activity android:name=".Cars"
+            android:parentActivityName=".androidlistviewactivity"
+            android:configChanges="orientation|screenSize"
+            />
+        <activity android:name=".Login"
+            android:parentActivityName=".Login"
+            />
+        <activity android:name=".Registeration"
+            android:parentActivityName=".MainActivity"
+            />
+        <activity android:name=".MainActivity"
+            android:parentActivityName=".androidlistviewactivity"
+            />
+        <activity android:name=".Profile" />
+        <activity android:name=".Udacity"
+            android:parentActivityName=".androidlistviewactivity"
+            android:configChanges="orientation|screenSize"
+            />
+        <activity android:name=".RecommendedApps"
+            android:parentActivityName=".androidlistviewactivity"
+            android:configChanges="orientation|screenSize"
+            ></activity>
+    </application>
+
+</manifest>
