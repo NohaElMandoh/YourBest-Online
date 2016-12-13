@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">YourBestOnlineTV</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="Search_KFC">Search KFCs</string>
 </resources>

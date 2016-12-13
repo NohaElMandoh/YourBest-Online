@@ -30,7 +30,7 @@ public class Udacity extends AppCompatActivity {
 
     private final String LOG_TAG = Udacity.class.getSimpleName();
 
-    static final String URL="https://yourbest-online.com/images/xml_files/Udacity_NanoDgree/Udacity.json";
+    static final String URL="https://cldup.com/mgSdL4SyDq.json";
 
     String main_List="Udacity",Image_URL="thumb_url",TITLE="title",WebSite="website";
     String website_STRING,TITLE_STRING,Image_URL_STRING;

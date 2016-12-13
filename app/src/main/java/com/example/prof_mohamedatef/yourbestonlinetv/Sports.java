@@ -26,7 +26,7 @@ public class Sports extends AppCompatActivity {
 
     private final String LOG_TAG = Sports.class.getSimpleName();
 
-    static final String URL="https://yourbest-online.com/images/xml_files/teams/teams.json";
+    static final String URL="https://cldup.com/DDCyX8usiD.json";
     String main_List="Clubs",Image_URL="thumb_url",TITLE="title",ID="id";
     String ID_STRING,TITLE_STRING,Image_URL_STRING;
 

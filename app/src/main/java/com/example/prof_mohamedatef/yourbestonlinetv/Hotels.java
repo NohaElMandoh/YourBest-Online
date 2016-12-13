@@ -29,9 +29,9 @@ public class Hotels extends AppCompatActivity {
     //http://www.ritzcarlton.com/
 private final String LOG_TAG = Sports.class.getSimpleName();
 
-    static final String Url="https://yourbest-online.com/images/xml_files/hotels_booking/hotels.json";
-    String main_List="Hotels",Image_URL="thumb_url",TITLE="title",ID="id",Room_Price="Room_Price",Website="website";
-    String ID_STRING,TITLE_STRING,Image_URL_STRING,Room_Price_STRING,WebSite_URL_STRING;
+    static final String Url="https://cldup.com/LDn8o8TcU4.json";
+    String main_List="Hotels",Image_URL="thumb_url",TITLE="title",ID="id",Room_Price="Room_Price",Website="website", postal_code="postal_code";
+    String ID_STRING,TITLE_STRING,Image_URL_STRING,Room_Price_STRING,WebSite_URL_STRING,postal_code_STRING;
 
     ArrayList<OptionsEntity> list = new ArrayList<OptionsEntity>();
     RecyclerView recyclerView;
@@ -88,8 +88,10 @@ private final String LOG_TAG = Sports.class.getSimpleName();
                 TITLE_STRING = oneHotelData.getString(TITLE);
                 Room_Price_STRING=oneHotelData.getString(Room_Price);
                 WebSite_URL_STRING=oneHotelData.getString(Website);
+                postal_code_STRING=oneHotelData.getString(postal_code);
                 mAdapter=null;
                 OptionsEntity entity = new OptionsEntity(Image_URL_STRING,TITLE_STRING,Room_Price_STRING,WebSite_URL_STRING,ID_STRING);
+                entity.setPOSTAL_CODE(postal_code_STRING);
                 list.add(entity);
             }
 

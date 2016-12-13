@@ -10,9 +10,100 @@ public class OptionsEntity implements Serializable {
     OptionsEntity(){
 
     }
-    String ImagePoster,OptionName,HotelRoomPrice,WebsiteURL,HotelUniqueId,Hotel_Name;
+    String ImagePoster;
+    String OptionName;
+    String HotelRoomPrice;
+    String WebsiteURL;
+    String HotelUniqueId;
+    String Hotel_Name;
+    String POSTAL_CODE;
+    String KFC_ID;
+    String Country;
+    String Address;
+    String City;
+    String Website_Url;
 
-    public OptionsEntity(String IMAGEPOSTER, String websiteURL,String CourseName) {
+    public String getWebsite_Url() {
+        return Website_Url;
+    }
+
+    public void setWebsite_Url(String website_Url) {
+        Website_Url = website_Url;
+    }
+
+    String Latitude;
+    String Langitude;
+
+    public String getKFC_ID() {
+        return KFC_ID;
+    }
+
+    public void setKFC_ID(String KFC_ID) {
+        this.KFC_ID = KFC_ID;
+    }
+
+    public String getCountry() {
+        return Country;
+    }
+
+    public void setCountry(String country) {
+        Country = country;
+    }
+
+    public String getAddress() {
+        return Address;
+    }
+
+    public void setAddress(String address) {
+        Address = address;
+    }
+
+    public String getCity() {
+        return City;
+    }
+
+    public void setCity(String city) {
+        City = city;
+    }
+
+    public String getLangitude() {
+        return Langitude;
+    }
+
+    public void setLangitude(String langitude) {
+        Langitude = langitude;
+    }
+
+    public String getLatitude() {
+        return Latitude;
+    }
+
+    public void setLatitude(String latitude) {
+        Latitude = latitude;
+    }
+
+    public OptionsEntity(String id_string, String image_url_string, String country_string, String address_string, String city_string, String webSite_url_string, String postal_code_string, String latitude_string, String langitude_string) {
+        KFC_ID=id_string;
+        ImagePoster=image_url_string;
+        Country=country_string;
+        Address=address_string;
+        City=city_string;
+        Website_Url=webSite_url_string;
+        POSTAL_CODE=postal_code_string;
+        Latitude=latitude_string;
+        Langitude=langitude_string;
+    }
+
+
+    public String getPOSTAL_CODE() {
+        return POSTAL_CODE;
+    }
+
+    public void setPOSTAL_CODE(String POSTAL_CODE) {
+        this.POSTAL_CODE = POSTAL_CODE;
+    }
+
+    public OptionsEntity(String IMAGEPOSTER, String websiteURL, String CourseName) {
         WebsiteURL = websiteURL;
         ImagePoster=IMAGEPOSTER;
         Hotel_Name=CourseName;

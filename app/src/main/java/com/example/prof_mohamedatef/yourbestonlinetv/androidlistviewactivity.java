@@ -36,37 +36,12 @@ import java.util.HashMap;
 import java.util.List;
 
 public class androidlistviewactivity extends AppCompatActivity{
-//    Parcelable state;
-    @Override
-    protected void onPause() {
-        super.onPause();
-//        position = listView.getFirstVisiblePosition();
-//        state= listView.onSaveInstanceState();
-
-    }
 
     private final String LOG_TAG = androidlistviewactivity.class.getSimpleName();
-
-    static final String URL="https://yourbest-online.com/images/xml_files/Desires.json";
-
+    static final String URL="https://cldup.com/6GN4PoElng.json";
     String main_List="Desires",Image_URL="thumb_url",TITLE="title",ID="id";
     String ID_STRING,TITLE_STRING,Image_URL_STRING;
-
     public static final String PREFS_Logger = "LoggerFile";
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-        // We need an Editor object to make preference changes.
-        // All objects are from android.context.Context
-//        SharedPreferences settings = getSharedPreferences(PREFS_Logger, 0);
-//        SharedPreferences.Editor editor = settings.edit();
-//        editor.putString("LoggedEmail", LoggedUser);
-//
-//        // Commit the edits!
-//        editor.commit();
-
-    }
 
     ArrayList<OptionsEntity> list = new ArrayList<OptionsEntity>();
     LazyAdapter mAdapter;
@@ -77,7 +52,6 @@ public class androidlistviewactivity extends AppCompatActivity{
     public JSONObject oneOptionData;
 
     public String LoggedUser;
-    public String  Session_Logger;
     SessionManagement sessionManagement;
 
     DBHelper myDB;
@@ -115,32 +89,22 @@ public class androidlistviewactivity extends AppCompatActivity{
             item.setTitle("Sign In").toString();
         }else if (!item.getTitle().toString().matches("")){
             String itemTitle=item.getTitle().toString();
-//            UsersEntity Logger= myDB.getLoggedUserInfo(itemTitle);
-            UsersEntity usersEntity;
             Logger=myDB.getLoggedUserInfo(itemTitle);
             Intent intent_LoggerDetails = new Intent(this, Profile.class);
             Bundle b = new Bundle();
             b.putSerializable("LoggerInfo", Logger);
-//                    .putExtra("LoggerInfo", Logger);
             intent_LoggerDetails.putExtras(b);
-//            intent_LoggerDetails.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent_LoggerDetails);
-//            Intent intent_LoggerDetails = new Intent(getApplicationContext(), Profile.class);
-//            intent_LoggerDetails .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//            getApplicationContext().startActivity(intent_LoggerDetails );
         }
         return super.onOptionsItemSelected(item);
     }
-
 
     @Override
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
         super.onCreateContextMenu(menu, v, menuInfo);
         AdapterView.AdapterContextMenuInfo info=(AdapterView.AdapterContextMenuInfo)menuInfo;
-//        switch (info.position){
-//            case 1:
-             if (info.position==1||info.position==20||info.position==21||info.position==22||info.position==23||info.position==24||info.position==25||info.position==26||info.position==27||info.position==28||info.position==29){
-                 if (v.getId()==R.id.list) {
+             if (info.position==1){
+                 if (v.getId()==R.id.list_main) {
                      menu.setHeaderTitle("Download");
                      String[] menuItem = {"Android app", "iPhone app"};
                      for (int i = 0; i < menuItem.length; i++) {
@@ -148,10 +112,6 @@ public class androidlistviewactivity extends AppCompatActivity{
                      }
                  }
              }
-//                break;
-//            default:
-//                break;
-//        }
     }
 
     @Override
@@ -171,137 +131,6 @@ public class androidlistviewactivity extends AppCompatActivity{
                     intent_UdacityiPhoneApp .setData(Uri.parse("https://itunes.apple.com/us/app/id819700933?mt=8"));
                     getApplicationContext().startActivity(intent_UdacityiPhoneApp );
                 }
-//                break;
-//            case 20:
-//                if (item.getTitle()=="Android app"){
-//                    Intent intent_facebookAndroidApp = new Intent();
-//                    intent_facebookAndroidApp .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//                    intent_facebookAndroidApp .setData(Uri.parse("https://play.google.com/store/apps/details?id=com.facebook.katana&hl=en"));
-//                    getApplicationContext().startActivity(intent_facebookAndroidApp );
-//                }else if (item.getTitle()=="iPhone app"){
-//                    Intent intent_facebookiPhoneApp = new Intent();
-//                    intent_facebookiPhoneApp.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//                    intent_facebookiPhoneApp.setData(Uri.parse("https://itunes.apple.com/us/app/facebook/id284882215?mt=8"));
-//                    getApplicationContext().startActivity(intent_facebookiPhoneApp);
-//                }
-//                break;
-//            case 21:
-//                if (item.getTitle()=="Android app"){
-//                    Intent intent_facebookAndroidApp = new Intent();
-//                    intent_facebookAndroidApp .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//                    intent_facebookAndroidApp .setData(Uri.parse("https://play.google.com/store/apps/details?id=com.twitter.android&hl=en"));
-//                    getApplicationContext().startActivity(intent_facebookAndroidApp );
-//                }else if (item.getTitle()=="iPhone app"){
-//                    Intent intent_twitteriPhoneApp = new Intent();
-//                    intent_twitteriPhoneApp.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//                    intent_twitteriPhoneApp.setData(Uri.parse("https://itunes.apple.com/us/app/twitter/id333903271?mt=8"));
-//                    getApplicationContext().startActivity(intent_twitteriPhoneApp);
-//                }
-//                break;
-//            case 22:
-//                if (item.getTitle()=="Android app"){
-//                    Intent intent_InstagramAndroidApp = new Intent();
-//                    intent_InstagramAndroidApp.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//                    intent_InstagramAndroidApp.setData(Uri.parse("https://play.google.com/store/apps/details?id=com.instagram.android&hl=en"));
-//                    getApplicationContext().startActivity(intent_InstagramAndroidApp);
-//                }else if (item.getTitle()=="iPhone app"){
-//                    Intent intent_InstagramiPhoneApp = new Intent();
-//                    intent_InstagramiPhoneApp.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//                    intent_InstagramiPhoneApp.setData(Uri.parse("https://itunes.apple.com/us/app/instagram/id389801252?mt=8"));
-//                    getApplicationContext().startActivity(intent_InstagramiPhoneApp);
-//                }
-//                break;
-//            case 23:
-//                if (item.getTitle()=="Android app"){
-//                    Intent intent_InstagramAndroidApp = new Intent();
-//                    intent_InstagramAndroidApp.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//                    intent_InstagramAndroidApp.setData(Uri.parse("https://play.google.com/store/apps/details?id=com.snapchat.android&hl=en"));
-//                    getApplicationContext().startActivity(intent_InstagramAndroidApp);
-//                }else if (item.getTitle()=="iPhone app"){
-//                    Intent intent_InstagramiPhoneApp = new Intent();
-//                    intent_InstagramiPhoneApp.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//                    intent_InstagramiPhoneApp.setData(Uri.parse("https://itunes.apple.com/us/app/snapchat/id447188370?mt=8"));
-//                    getApplicationContext().startActivity(intent_InstagramiPhoneApp);
-//                }
-//                break;
-//            case 24:
-//                if (item.getTitle()=="Android app"){
-//                    Intent intent_InstagramAndroidApp = new Intent();
-//                    intent_InstagramAndroidApp.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//                    intent_InstagramAndroidApp.setData(Uri.parse("https://play.google.com/store/apps/details?id=com.viber.voip&hl=en"));
-//                    getApplicationContext().startActivity(intent_InstagramAndroidApp);
-//                }else if (item.getTitle()=="iPhone app"){
-//                    Intent intent_InstagramiPhoneApp = new Intent();
-//                    intent_InstagramiPhoneApp.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//                    intent_InstagramiPhoneApp.setData(Uri.parse("https://itunes.apple.com/us/app/viber/id382617920?mt=8"));
-//                    getApplicationContext().startActivity(intent_InstagramiPhoneApp);
-//                }
-//                break;
-//            case 25:
-//                if (item.getTitle()=="Android app"){
-//                    Intent intent_InstagramAndroidApp = new Intent();
-//                    intent_InstagramAndroidApp.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//                    intent_InstagramAndroidApp.setData(Uri.parse("https://play.google.com/store/apps/details?id=com.whatsapp&hl=en"));
-//                    getApplicationContext().startActivity(intent_InstagramAndroidApp);
-//                }else if (item.getTitle()=="iPhone app"){
-//                    Intent intent_InstagramiPhoneApp = new Intent();
-//                    intent_InstagramiPhoneApp.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//                    intent_InstagramiPhoneApp.setData(Uri.parse("https://itunes.apple.com/us/app/whatsapp-messenger/id310633997?mt=8"));
-//                    getApplicationContext().startActivity(intent_InstagramiPhoneApp);
-//                }
-//                break;
-//            case 26:
-//                if (item.getTitle()=="Android app"){
-//                    Intent intent_InstagramAndroidApp = new Intent();
-//                    intent_InstagramAndroidApp.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//                    intent_InstagramAndroidApp.setData(Uri.parse("https://play.google.com/store/apps/details?id=com.facebook.orca&hl=en"));
-//                    getApplicationContext().startActivity(intent_InstagramAndroidApp);
-//                }else if (item.getTitle()=="iPhone app"){
-//                    Intent intent_InstagramiPhoneApp = new Intent();
-//                    intent_InstagramiPhoneApp.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//                    intent_InstagramiPhoneApp.setData(Uri.parse("https://itunes.apple.com/us/app/messenger/id454638411?mt=8"));
-//                    getApplicationContext().startActivity(intent_InstagramiPhoneApp);
-//                }
-//                break;
-//            case 27:
-//                if (item.getTitle()=="Android app"){
-//                    Intent intent_InstagramAndroidApp = new Intent();
-//                    intent_InstagramAndroidApp.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//                    intent_InstagramAndroidApp.setData(Uri.parse("https://play.google.com/store/apps/details?id=com.facebook.orca&hl=en"));
-//                    getApplicationContext().startActivity(intent_InstagramAndroidApp);
-//                }else if (item.getTitle()=="iPhone app"){
-//                    Intent intent_InstagramiPhoneApp = new Intent();
-//                    intent_InstagramiPhoneApp.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//                    intent_InstagramiPhoneApp.setData(Uri.parse("https://itunes.apple.com/us/app/messenger/id454638411?mt=8"));
-//                    getApplicationContext().startActivity(intent_InstagramiPhoneApp);
-//                }
-//                break;
-//            case 28:
-//                if (item.getTitle()=="Android app"){
-//                    Intent intent_InstagramAndroidApp = new Intent();
-//                    intent_InstagramAndroidApp.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//                    intent_InstagramAndroidApp.setData(Uri.parse("https://play.google.com/store/apps/details?id=com.imo.android.imoim&hl=en"));
-//                    getApplicationContext().startActivity(intent_InstagramAndroidApp);
-//                }else if (item.getTitle()=="iPhone app"){
-//                    Intent intent_InstagramiPhoneApp = new Intent();
-//                    intent_InstagramiPhoneApp.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//                    intent_InstagramiPhoneApp.setData(Uri.parse("https://itunes.apple.com/us/app/imo-free-video-calls-and-chat/id336435697?mt=8"));
-//                    getApplicationContext().startActivity(intent_InstagramiPhoneApp);
-//                }
-//                break;
-//            case 29:
-//                if (item.getTitle()=="Android app"){
-//                    Intent intent_InstagramAndroidApp = new Intent();
-//                    intent_InstagramAndroidApp.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//                    intent_InstagramAndroidApp.setData(Uri.parse("https://play.google.com/store/apps/details?id=jp.naver.line.android&hl=en"));
-//                    getApplicationContext().startActivity(intent_InstagramAndroidApp);
-//                }else if (item.getTitle()=="iPhone app"){
-//                    Intent intent_InstagramiPhoneApp = new Intent();
-//                    intent_InstagramiPhoneApp.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//                    intent_InstagramiPhoneApp.setData(Uri.parse("https://itunes.apple.com/us/app/line/id443904275?mt=8"));
-//                    getApplicationContext().startActivity(intent_InstagramiPhoneApp);
-//                }
-//                break;
         }
         return super.onContextItemSelected(item);
     }
@@ -311,65 +140,7 @@ public class androidlistviewactivity extends AppCompatActivity{
         menu.getItem(1).setTitle(LoggedUser).toString();
         return super.onPrepareOptionsMenu(menu);
     }
-
-    Serializable state;
-    int position,top;
-    View v;
-    @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-//        state=listView.onSaveInstanceState();
-//        outState.putSerializable("mylist", mAdapter);
-//        position= listView.getFirstVisiblePosition();
-//        v=listView.getChildAt(0);
-//        top = (v == null) ? 0 : v.getTop();
-//        outState.putInt("Position", position);
-//        outState.putInt("top", top);
-    }
-
-//    @Override
-//    protected void onPause()
-//    {
-//        index = listView.getFirstVisiblePosition();
-//        // store index using shared preferences
-//    }
-//    @Override
-//    public void onResume() {
-//        super.onResume();
-//// get index from shared preferences
-//
-//        if(listView != null){
-//            if(listView.getCount() > index)
-//                listView.setSelectionFromTop(index, 0);
-//            else
-//                listView.setSelectionFromTop(0, 0);
-//        }
-    @Override
-    protected void onRestoreInstanceState(Bundle savedInstanceState) {
-        super.onRestoreInstanceState(savedInstanceState);
-//        if (savedInstanceState != null && savedInstanceState.getSerializable("mylist")!=null ) {
-//savedInstanceState.getInt("Position")!=0
-//            list= (ArrayList<OptionsEntity>) savedInstanceState.getSerializable("mylist");
-//            mAdapter=(LazyAdapter) savedInstanceState.getSerializable("mylist");
-//            listView.findViewById(R.id.list);
-//            listView.setAdapter(mAdapter);
-//            mAdapter.notifyDataSetChanged();
-//            listView.onRestoreInstanceState((Parcelable) savedInstanceState.getSerializable("mylist"));
-//        }
-//        savedInstanceState.putParcelable("Pos",state);
-//            position = savedInstanceState.getInt("Position", 0);
-//            top = savedInstanceState.getInt("top", 0);
-
-//------------------------------
-//            if (top < 0 ) {
-//                //&& listView.getChildAt(0) != null
-//                position++;
-//                v = listView.getChildAt(1);
-//                top = v.getTop();
-//                listView.setSelectionFromTop(position,top);
-//            }
-//        }
-    }
+    int position;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -393,13 +164,15 @@ public class androidlistviewactivity extends AppCompatActivity{
         } catch (Exception e) {
             Log.e(LOG_TAG, "Didn't Create Database", e);
         }
+
+        listView=(ListView)findViewById(R.id.list_main);
             if (savedInstanceState != null ) {
 //                &&savedInstanceState.getInt("Position")!=0&&savedInstanceState.getInt("top")!=0 // && savedInstanceState.getSerializable("mylist")!=null
                 Bundle b = getIntent().getExtras();
                 if (b != null) {
                     LoggedUser = b.getString("Email", null);
                 }    // get username and set it to action bar
-                listView = (ListView) findViewById(R.id.list);
+
                 mAdapter = new LazyAdapter(getApplicationContext(), R.layout.list_row, new ArrayList<OptionsEntity>());
 //                mAdapter= (LazyAdapter) savedInstanceState.getSerializable("mylist");
                 listView.setAdapter(mAdapter);
@@ -433,7 +206,6 @@ public class androidlistviewactivity extends AppCompatActivity{
                 if (b != null) {
                     LoggedUser = b.getString("Email", null);
                 }        // get username and set it to action bar
-                    listView = (ListView) findViewById(R.id.list);
                     mAdapter = new LazyAdapter(getApplicationContext(), R.layout.list_row, new ArrayList<OptionsEntity>());
                     listView.setAdapter(mAdapter);
                 mAdapter.notifyDataSetChanged();
@@ -457,14 +229,15 @@ public class androidlistviewactivity extends AppCompatActivity{
 //                listView.smoothScrollToPosition(14);
 //            }
 //        });
-//            registerForContextMenu(listView);
+
 //        int index = listView.getFirstVisiblePosition();
 //        View v = listView.getChildAt(0);
 //        int top = (v == null) ? 0 : (v.getTop() - listView.getPaddingTop());
 // ...
 // restore index and position
 //        listView.setSelectionFromTop(index, top);
-            listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        registerForContextMenu(listView);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                     switch (position) {
@@ -512,9 +285,8 @@ public class androidlistviewactivity extends AppCompatActivity{
                             getApplicationContext().startActivity(intent_COOK_DOOR);
                             break;
                         case 8:
-                            Intent intent_KFC = new Intent();
+                            Intent intent_KFC = new Intent(getApplicationContext(), KFC_ListView.class);
                             intent_KFC.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                            intent_KFC.setData(Uri.parse("https://www.kfc.com/"));
                             getApplicationContext().startActivity(intent_KFC);
                             break;
                         case 9:
@@ -654,14 +426,6 @@ public class androidlistviewactivity extends AppCompatActivity{
     protected void onResume() {
         super.onResume();
         startFetchingUsersDesires();
-//        listView.smoothScrollToPosition(14);
-//
-//        if(listView != null){
-//             if(listView.getCount() > position)
-//                listView.setSelectionFromTop(position, 0);
-//            else
-//                listView.setSelectionFromTop(0, 0);
-//        }
     }
 
     public void startFetchingUsersDesires() {

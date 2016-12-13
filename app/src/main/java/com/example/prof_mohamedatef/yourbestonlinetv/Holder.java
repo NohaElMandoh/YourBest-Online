@@ -1,5 +1,7 @@
 package com.example.prof_mohamedatef.yourbestonlinetv;
 
+import java.util.ArrayList;
+
 /**
  * Created by Prof-Mohamed Atef on 11/25/2016.
  */
@@ -12,6 +14,13 @@ public class Holder {
 //            String HotelRoom=optionsEntity.getHotelRoomPrice();
 
     public static String HotelName, ImagePath, URL, HotelID, HotelRoom;
+    public ArrayList<OptionsEntity> counter;
+    public ArrayList<OptionsEntity> Keepcounter;
 
+    public Holder( ArrayList<OptionsEntity> keepcounter) {
+        Keepcounter = keepcounter;
+    }
 
+    public Holder() {
+    }
 }

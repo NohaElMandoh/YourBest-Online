@@ -5,8 +5,10 @@ import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.hardware.camera2.TotalCaptureResult;
 import android.net.Uri;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -87,7 +89,7 @@ public class Booking_hotels extends AppCompatActivity implements AdapterView.OnI
     final int day = c.get(Calendar.DAY_OF_MONTH);
 
     OptionsEntity optionsEntity;
-    String url, StartFrom, EndAt, TotalPayment;
+    String postal_CODE, url, StartFrom, EndAt, TotalPayment;
     boolean verify;
 
     @Override
@@ -136,6 +138,7 @@ public class Booking_hotels extends AppCompatActivity implements AdapterView.OnI
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                     Toast.makeText(getApplicationContext(), "Please, Verify Date To After Date From" , Toast.LENGTH_LONG).show();
             }
+
             @Override
             public void afterTextChanged(Editable s) {
                 TotalPayment= txt_total_payment.getText().toString();
@@ -149,23 +152,19 @@ public class Booking_hotels extends AppCompatActivity implements AdapterView.OnI
 //        }else {
             final Intent intent = getIntent();
             if (intent != null) {
-
                 try{
                     optionsEntity = (OptionsEntity) intent.getSerializableExtra("HotelInfo");
                     txt_hotel_name.setText(optionsEntity.getHotel_Name());
                     Picasso.with(getApplicationContext()).load(optionsEntity.getImagePoster()).into(Hotel_Image);
                     Price.setText(optionsEntity.getHotelRoomPrice());//+ " USD"
                     url= optionsEntity.getWebsiteURL();
+                    postal_CODE=optionsEntity.getPOSTAL_CODE();
                 }catch(Exception e){
                     txt_hotel_name.setText(h.HotelName);
                     Picasso.with(getApplicationContext()).load(h.ImagePath).into(Hotel_Image);
                     Price.setText(h.HotelRoom);//+ " USD"
                     url= h.URL;
                 }
-
-
-
-
             }
 //        }
 
@@ -314,6 +313,7 @@ public class Booking_hotels extends AppCompatActivity implements AdapterView.OnI
                 }
                 break;
             case R.id.location:
+                openPreferredLocationInMap();
                 break;
             case R.id.Orders:
                 user =sessionManagement.getUserDetails();
@@ -391,6 +391,49 @@ public class Booking_hotels extends AppCompatActivity implements AdapterView.OnI
 //        }
 //        invalidateOptionsMenu();
         return super.onOptionsItemSelected(item);
+    }
+
+    private void openPreferredLocationInMap() {
+//                    SharedPreferences sharedPrefs =
+//                                    PreferenceManager.getDefaultSharedPreferences(this);
+//                    String location = sharedPrefs.getString(
+////                                    getString(R.string.pref_location_key),
+////                                    getString(R.string.pref_location_default));
+        //1113 Corniche El Nile, Nile Corniche, Cairo, Cairo Governorate
+        // 1115 كورنيش النيل، شركس، Cairo, محافظة القاهرة‬ 12344
+        String location = null;
+//        switch (url) {
+//            case "http://www.ritzcarlton.com/en/hotels/middle-east/cairo":
+//                location = "1113 Corniche El Nile, Nile Corniche, Cairo, Cairo Governorate";
+////                        Intent intentNileRitzCarlton = new Intent();
+////                        intentNileRitzCarlton.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+////                        intentNileRitzCarlton.setData(Uri.parse("http://www.ritzcarlton.com/en/hotels/middle-east/cairo"));
+////                        getApplicationContext().startActivity(intentNileRitzCarlton);
+//                break;
+//            case "http://www3.hilton.com/en/hotels/egypt/ramses-hilton-CAIRHTW/index.html":
+//                location = "1115 كورنيش النيل، شركس، Cairo, محافظة القاهرة\u202C 12344";
+////                        Intent intentRamsesHilton = new Intent();
+////                        intentRamsesHilton.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+////                        intentRamsesHilton.setData(Uri.parse("http://www3.hilton.com/en/hotels/egypt/ramses-hilton-CAIRHTW/index.html"));
+////                        getApplicationContext().startActivity(intentRamsesHilton);
+//                break;
+//            default:
+//                break;
+//        }
+                            // Using the URI scheme for showing a location found on a map.  This super-handy
+                                    // intent can is detailed in the "Common Intents" page of Android's developer site:
+                                            // http://developer.android.com/guide/components/intents-common.html#Maps
+        location=postal_CODE;
+                                                    Uri geoLocation = Uri.parse("geo:0,0?").buildUpon()
+                                    .appendQueryParameter("q", location)
+                                    .build();
+                            Intent intent = new Intent(Intent.ACTION_VIEW);
+                    intent.setData(geoLocation);
+                            if (intent.resolveActivity(getPackageManager()) != null) {
+                            startActivity(intent);
+                        } else {
+                            Log.d(LOG_TAG, "Couldn't call " + location + ", no receiving apps installed!");
+                        }
     }
 
     public void DialogueOrdersUnavailableDueRegisteration(){

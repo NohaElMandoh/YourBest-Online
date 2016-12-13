@@ -56,8 +56,9 @@ public class LazyAdapter extends ArrayAdapter implements Serializable{
         if(view==null){
             view=LayoutInflater.from(mContext).inflate(R.layout.list_row,parent,false);
         }
-        TextView title = (TextView)view.findViewById(R.id.title); // title
-        title.setText(feedItem.getOptionName());
+        TextView Title = (TextView)view.findViewById(R.id.title); // title
+        Title.setText(feedItem.getOptionName());
+
         ImageView thumb_image=(ImageView)view.findViewById(R.id.list_image); // thumb image
         Picasso.with(mContext).load(feedItem.getImagePoster()).into(thumb_image);
         return view;

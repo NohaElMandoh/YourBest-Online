@@ -56,12 +56,12 @@ public class hotel_orders extends AppCompatActivity {
 //        String email = user.get(SessionManagement.KEY_EMAIL);
 //        PopulateHotelOrdersListView(email);
     }
-
+    String email;
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
         user =sessionManagement.getUserDetails();
         String name = user.get(SessionManagement.KEY_NAME);
-        String email = user.get(SessionManagement.KEY_EMAIL);
+        email = user.get(SessionManagement.KEY_EMAIL);
         if (email==null){
             menu.findItem(R.id.Username_orders).setTitle("Sign In");
             LoggedUser=null;
@@ -106,7 +106,7 @@ public class hotel_orders extends AppCompatActivity {
         PopulateHotelOrdersListView(email);
     }
 
-    public void DialogueSuccessful(){
+    public void DialogueYou_havenot_reserved_Orders(){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setMessage("Sorry, You haven't reserved Orders yet")
                 .setTitle("Orders Reservation")
@@ -120,13 +120,28 @@ public class hotel_orders extends AppCompatActivity {
         Dialogue.show();
     }
 
+    public void DialogueDeletedSuccessfully(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage("Successful")
+                .setTitle("Nice")
+                .setNegativeButton("Done", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        // FIRE ZE MISSILES!
+                    }
+                });
+        // Create the AlertDialog object and return it
+        AlertDialog Dialogue=builder.create();
+        Dialogue.show();
+    }
     public void PopulateHotelOrdersListView(String email){
         hotelEntity= myDB.getHotelsOrderedDataByUserName(email);
-        if (hotelEntity.size()==0){
-            DialogueSuccessful();
-        }else {
+//        if (hotelEntity.size()==0){
+//            DialogueYou_havenot_reserved_Orders();
+//        }else {
             hotelOrderesListAdapter = new HotelOrderesListAdapter(getApplicationContext(), R.layout.list_hotels_orders, hotelEntity);
+            hotelOrderesListAdapter.notifyDataSetChanged();
             listView.setAdapter(hotelOrderesListAdapter);
+            hotelOrderesListAdapter.notifyDataSetChanged();
             listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -150,7 +165,7 @@ public class hotel_orders extends AppCompatActivity {
                 }
             });
 
-        }
+//        }
     }
 
     @Override
@@ -178,7 +193,11 @@ public class hotel_orders extends AppCompatActivity {
                  }
                  break;
              case R.id.clear_orders:
-
+                 boolean deleted=myDB.clearOrdersInTBLHotelReservations(email);
+                 if (deleted==true){
+                     DialogueDeletedSuccessfully();
+                     PopulateHotelOrdersListView(email);
+                 }
                  break;
              case R.id.logout:
                  sessionManagement.logoutUser();

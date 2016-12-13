@@ -39,7 +39,7 @@ public class Cars extends Activity {
 
     private final String LOG_TAG = androidlistviewactivity.class.getSimpleName();
 
-    static final String URL="https://yourbest-online.com/images/xml_files/Cars/cars.json";
+    static final String URL="https://cldup.com/T58eTSswv1.json";
     String main_List="Cars",Image_URL="thumb_url",TITLE="title",ID="id";
     String ID_STRING,TITLE_STRING,Image_URL_STRING;
 

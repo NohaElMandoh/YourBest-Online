@@ -276,6 +276,13 @@ public class DBHelper extends SQLiteOpenHelper {
         }
     }
 
+    public boolean clearOrdersInTBLHotelReservations(String UserName){
+        SQLiteDatabase db = this.getWritableDatabase();
+//        "delete * from "+TABLE_Hotel_Rooms_Reservation+"where ByUserName = ? ", new String[]{UserName}
+//        db.execSQL("DELETE FROM "+TABLE_Hotel_Rooms_Reservation+" WHERE "+ );
+//        " where ByUserName = ? ", new String[]{Username});
+        return db.delete(TABLE_Hotel_Rooms_Reservation," ByUserName = ? ", new String[]{UserName})>0;
+    }
     /**
      * Inserting new HotelRoomsNums into TABLE_Hotel_Rooms table
      * */
